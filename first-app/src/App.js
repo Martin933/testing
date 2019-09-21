@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CustomButton from "./Components/button.comppnent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { name: "helo" };
+    // this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange = () => {
+    console.log("worked");
+    this.setState({
+      name: this.state.name + "hey"
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        {/* <button onClick={this.handleChange}>ahhsjhfjshdjfhs</button> */}
+        <p>{this.state.name}</p>
+        <CustomButton a={this.handleChange}></CustomButton>
+      </div>
+    );
+  }
 }
-
 export default App;
